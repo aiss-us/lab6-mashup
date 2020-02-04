@@ -48,20 +48,26 @@ public class SongResourceTest {
 
 	@Test
 	public void testGetSong() {
-		Song song  = sr.getSong(song1.getId());
-		
-		assertEquals("The id of the song does not match", song1.getId(), song.getId());
-		
-		// Show result
-		System.out.println("Song title: " +  song.getTitle());
-		System.out.println("Song album: " +  song.getAlbum());
-		System.out.println("Song artist: " + song.getArtist());
-
+		//TODO
 	}
 
 	@Test
 	public void testAddSong() {
-		//TODO
+		
+		String songTitle = "Add song test title";
+		String songArtist = "Add song test artist";
+		String songAlbum = "Add song test album";
+		String songYear = "1980";
+		
+		song3 = sr.addSong(new Song(songTitle,songArtist,songAlbum,songYear));
+		
+		assertNotNull("Error when adding the song", song3);
+		
+		assertEquals("The song's title has not been setted correctly", songTitle, song3.getTitle());
+		assertEquals("The song's artist has not been setted correctly", songArtist, song3.getArtist());
+		assertEquals("The song's album has not been setted correctly", songAlbum, song3.getAlbum());
+		assertEquals("The song's year has not been setted correctly", songYear, song3.getYear());
+
 	}
 
 	@Test
